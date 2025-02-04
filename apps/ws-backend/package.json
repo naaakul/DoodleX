@@ -9,7 +9,8 @@
   },
   "dependencies": {
     "jsonwebtoken": "^9.0.2",
-    "ws": "^8.18.0"
+    "ws": "^8.18.0",
+    "@repo/db" : "workspace:*"
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",
@@ -17,6 +18,9 @@
     "@types/ws": "^8.5.14",
     "@repo/backend-common" : "workspace:*",
     "@repo/common" : "workspace:*"
+  },
+  "compilerOptions": {
+    "allowImportingTsExtensions": true
   },
   "keywords": [],
   "author": "",

@@ -3,11 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "exports": {
-    "./config": "./src/index.ts",
-    ".": {
-      "import": "./dist/index.js",
-      "require": "./dist/index.js"
-    }
+    "./config": "./src/index.ts"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -20,7 +16,6 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "@types/node": "^22.13.0",
-    "node": "^23.7.0"
+    "@types/node": "^22.10.5"
   }
 }
