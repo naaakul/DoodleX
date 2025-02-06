@@ -1,13 +1,13 @@
 import { WebSocketServer, WebSocket } from 'ws';
 import * as jwt from 'jsonwebtoken';
 import { JwtPayload } from 'jsonwebtoken';
-import { JWT_SECRET } from '@repo/backend-common/src/index';
+import { JWT_SECRET } from '@repo/backend-common/src';
 import { prismaClient } from "@repo/db/src/index";
 
 const wss = new WebSocketServer({ port: 8080 });
 
 interface User {
-    userId: string;
+    usetId: string;
     rooms: string[];
     ws: WebSocket;
 }
@@ -22,11 +22,11 @@ function checkUser(token : string): string | null {
             return null;
         }
 
-        if(!decoded || !decoded.userId) {
+        if(!decoded || !decoded.usetId) {
             return null;
         }
 
-        return decoded.userId;
+        return decoded.usetId;
     }
     catch(e){
         return null;
@@ -42,15 +42,15 @@ wss.on('connection', function connection(ws, request) {
 
     const queryParams = new URLSearchParams(url.split('?')[1]);
     const token = queryParams.get('token') || "";
-    const userId = checkUser(token);
+    const usetId = checkUser(token);
 
-    if(userId == null){
+    if(usetId == null){
         ws.close();
         return null;
     }
 
     users.push({
-        userId,
+        usetId,
         rooms: [],
         ws
     })
@@ -79,7 +79,7 @@ wss.on('connection', function connection(ws, request) {
             data: {
                 roomId,
                 message,
-                userId
+                usetId
             }
         })
 
