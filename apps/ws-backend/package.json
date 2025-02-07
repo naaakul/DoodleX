@@ -4,23 +4,19 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc -b",
-    "start": "node dist/index.js",
-    "dev": "tsc -b && node dist/index.js"
+    "start": "node ./dist/index.js",
+    "dev": "npm run build && npm run start"
   },
   "dependencies": {
+    "@types/jsonwebtoken": "^9.0.7",
     "jsonwebtoken": "^9.0.2",
     "ws": "^8.18.0",
-    "@repo/db" : "workspace:*"
+    "@repo/db": "workspace:*"
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",
-    "@types/jsonwebtoken": "^9.0.8",
-    "@types/ws": "^8.5.14",
-    "@repo/backend-common" : "workspace:*",
-    "@repo/common" : "workspace:*"
-  },
-  "compilerOptions": {
-    "allowImportingTsExtensions": true
+    "@types/ws": "^8.5.13",
+    "@repo/backend-common": "workspace:*"
   },
   "keywords": [],
   "author": "",
